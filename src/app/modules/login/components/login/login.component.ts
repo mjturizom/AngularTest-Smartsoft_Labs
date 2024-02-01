@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../../services/auth/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required])
   });
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   login(e:any): void {
     console.log(this.form)
@@ -23,9 +24,8 @@ export class LoginComponent {
       const password = this.form.get('password')?.value || "";
       this.authService.login({email, password}).subscribe(success => {
         if (success) {
-          console.log('Login successful!');
           localStorage.setItem("loged", "true")
-          // re dirigit a otra ruta
+          this.router.navigate(['/upload-csv'])
         } else {
           console.log('Login failed');
           // Error handle
@@ -36,7 +36,6 @@ export class LoginComponent {
       });
       
       this.form.updateValueAndValidity()
-      console.log(this.form)
         
       });
       

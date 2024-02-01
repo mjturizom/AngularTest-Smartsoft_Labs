@@ -1,0 +1,92 @@
+<div style="padding: 20px;">
+  <mat-card style="padding: 10px;">
+    <p mat-card-title>Seleccione Archivo .csv a procesar</p>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+      <br /><br />
+      <mat-form-field style="width: 100%">
+        <mat-label>Seleccionar archivo</mat-label>
+        <button mat-icon-button matPrefix (click)="f_input.click()">
+          <mat-icon>attach_file</mat-icon>
+        </button>
+        <input type="text" readonly matInput />
+        <input
+          type="file"
+          multiple
+          hidden
+          #f_input
+          (change)="onChange(f_input.files!)"
+        />
+        <mat-error>this field is required</mat-error>
+      </mat-form-field>
+      <br /><br />
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-actions align="end">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!file"
+        (click)="onSubmit()"
+      >
+        Procesar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card *ngIf="file" style="margin-top: 16px">
+    <mat-list>
+      <div mat-subheader>Archivo cargado</div>
+      <mat-list-item style="display: flex">
+        <mat-icon mat-list-icon>insert_drive_file</mat-icon>
+        <div mat-line style="display: table-caption">{{ file.name }}</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+
+  <mat-divider style="margin: 1em 0"></mat-divider>
+  <mat-card *ngIf="stateWithMostDeaths" style="margin-top: 16px">
+    <mat-list>
+      <div mat-subheader>Datos Importantes</div>
+      <mat-list-item>
+        Estado con mayor acumulado: {{ stateWithMostDeaths }}
+      </mat-list-item>
+      <mat-list-item>
+        Estado con menor acumulado: {{ stateWithLeastDeaths }}
+      </mat-list-item>
+      <mat-list-item>
+        Estado más afectado (muertes/numero habitantes): {{ mostAffectedState.state }}
+      </mat-list-item>
+    </mat-list>
+
+  </mat-card>
+  <!-- <div *ngIf="stateWithMostDeaths">
+    <p>Estado con mayor acumulado: {{ stateWithMostDeaths }}</p>
+    <p>Estado con menor acumulado: {{ stateWithLeastDeaths }}</p>
+    <p>
+      Estado más afectado(muertes/numero habitantes):
+      {{ mostAffectedState.state }}
+    </p>
+  </div> -->
+
+  <mat-divider style="margin: 1em 0"></mat-divider>
+
+  <mat-card
+    *ngIf="pieChartData.datasets.length"
+    style="position: relative; display: flex; justify-content: center"
+  >
+    <canvas
+      baseChart
+      class="chart"
+      [data]="pieChartData"
+      [type]="pieChartType"
+      [options]="pieChartOptions"
+      [plugins]="pieChartPlugins"
+    >
+    </canvas>
+  </mat-card>
+</div>
