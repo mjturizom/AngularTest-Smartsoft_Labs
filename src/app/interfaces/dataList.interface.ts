@@ -20,3 +20,14 @@ export interface ApiResponse {
     jp: string
     na: string
   }
+
+
+  // export interface partialAmiibo {
+  //   amiiboSeries: string
+  //   character: string
+  //   gameSeries: string
+  //   head: string
+  //   name: string
+  //   tail: string
+  //   type: string
+  // }

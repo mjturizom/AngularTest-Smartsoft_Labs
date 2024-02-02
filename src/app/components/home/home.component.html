@@ -1,0 +1,33 @@
+<header class="bg-primary p-4 fixed w-full z-10 flex justify-between items-center" style="background-color: aliceblue; height: 14%">
+    <button *ngIf="isMobile" mat-icon-button color="primary" (click)="toggleSidebar()" class="md:hidden z-20">
+     <mat-icon>menu</mat-icon>
+    </button>
+    <img src="../assets/Imagen 1.png" style="position: absolute;
+    align-self: center;
+    top: inherit;
+    right: 15px;
+    width: 12em;
+    padding-top: 10px;" alt="">
+  </header>
+    
+    <div class="flex mb-16 h-full" style="margin-top: 105px;">
+    
+      <!-- Sidebar -->
+      <aside [ngClass]="{'-translate-x-full': !sidebarOpen, 'translate-x-0': sidebarOpen, 'h-full': isMobile, }"
+           class="transform top-0 left-0 w-64 bg-gray-200 p-5 fixed overflow-auto transition-transform duration-300 ease-in-out z-10 md:relative md:translate-x-0">
+           <button *ngIf="isMobile" (click)="toggleSidebar()" class="absolute top-0 right-0 mt-4 mr-4">
+            <mat-icon>close</mat-icon>
+          </button>
+        Sidebar<br>Fixed width<br>Scrollable height
+      </aside>
+      
+      <!-- Content Area -->
+      <main class="flex-1 overflow-auto p-4">
+          <router-outlet></router-outlet>
+      </main>
+    
+    </div>
+    
+    <footer class="bg-accent text-white p-4 fixed inset-x-0 bottom-0">
+      Footer
+    </footer>

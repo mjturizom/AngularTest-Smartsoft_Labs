@@ -1,0 +1,121 @@
+<div class="md:container md:mx-auto" style="padding: 20px;">
+    <p>Crear amiibo</p>
+        <form class="flex flex-row flex-wrap gap-4" [formGroup]="form" (ngSubmit)="onSubmit()" >
+          <mat-form-field  class="grow ">
+            <mat-label>amiibo Series</mat-label>
+            <input
+              matInput
+              placeholder="Type your email"
+              type="text"
+              formControlName="amiiboSeries"
+            />
+            <!-- <mat-error *ngIf="form.controls.email.hasError('email') && !form.controls.email.hasError('required')">
+          Please enter a valid email address
+        </mat-error> -->
+            <!-- <mat-error *ngIf="form.controls.email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+          </mat-form-field>
+
+          <mat-form-field class="grow ">
+            <mat-label>Character</mat-label>
+            <input
+              matInput
+              placeholder="Type your password"
+              type="text"
+              formControlName="character"
+            />
+
+            <!-- <mat-error *ngIf="form.controls.password.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error> -->
+          </mat-form-field>
+
+          <mat-form-field  class="grow">
+            <mat-label>Game Series</mat-label>
+            <input
+              matInput
+              placeholder="Type your email"
+              type="text"
+              formControlName="gameSeries"
+            />
+            <!-- <mat-error *ngIf="form.controls.email.hasError('email') && !form.controls.email.hasError('required')">
+          Please enter a valid email address
+        </mat-error> -->
+            <!-- <mat-error *ngIf="form.controls.email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+          </mat-form-field>
+          <mat-form-field  class="grow">
+            <mat-label>Head</mat-label>
+            <input
+              matInput
+              placeholder="Type your email"
+              type="text"
+              formControlName="head"
+            />
+            <!-- <mat-error *ngIf="form.controls.email.hasError('email') && !form.controls.email.hasError('required')">
+          Please enter a valid email address
+        </mat-error> -->
+            <!-- <mat-error *ngIf="form.controls.email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+          </mat-form-field>
+          <mat-form-field  class="grow">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              placeholder="Type your email"
+              type="text"
+              formControlName="name"
+            />
+            <!-- <mat-error *ngIf="form.controls.email.hasError('email') && !form.controls.email.hasError('required')">
+          Please enter a valid email address
+        </mat-error> -->
+            <!-- <mat-error *ngIf="form.controls.email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+          </mat-form-field>
+          <mat-form-field  class="grow">
+            <mat-label>Tail</mat-label>
+            <input
+              matInput
+              placeholder="Tail"
+              type="text"
+              formControlName="tail"
+            />
+            <!-- <mat-error *ngIf="form.controls.email.hasError('email') && !form.controls.email.hasError('required')">
+          Please enter a valid email address
+        </mat-error> -->
+            <!-- <mat-error *ngIf="form.controls.email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+          </mat-form-field>
+          <mat-form-field class="grow" >
+            <mat-label>type</mat-label>
+            <input
+              matInput
+              placeholder="Type type"
+              type="text"
+              formControlName="type"
+            />
+            <!-- <mat-error *ngIf="form.controls.email.hasError('email') && !form.controls.email.hasError('required')">
+          Please enter a valid email address
+        </mat-error> -->
+            <!-- <mat-error *ngIf="form.controls.email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+          </mat-form-field>
+          <div class="grow">
+          <button
+            mat-raised-button
+            color="warn"
+            type="submit"
+            class="grow text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+          >
+            Ingresar
+          </button>
+        </div>
+        </form>
+        
+    </div>

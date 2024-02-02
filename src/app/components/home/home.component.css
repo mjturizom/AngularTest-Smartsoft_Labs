@@ -1,0 +1,19 @@
+/* Transición para el sidebar */
+.sidebar-transition {
+    transition: transform 0.3s;
+  }
+  
+  /* Posición inicial del sidebar oculto */
+  .sidebar-hidden {
+    transform: translateX(-100%);
+  }
+  
+  /* Posición del sidebar visible */
+  .sidebar-visible {
+    transform: translateX(0);
+  }
+  
+  /* Fondo oscuro para cuando el sidebar esté visible en móviles */
+  .overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }

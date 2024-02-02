@@ -14,10 +14,14 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required])
   });
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { 
+   const isLogged = localStorage.getItem("loged");
+   if(isLogged){
+    this.router.navigate(['/home'])
+   }
+  }
 
   login(e:any): void {
-    console.log(this.form)
      if (this.form.valid){
       
       const email = this.form.get('email')?.value || "";
@@ -25,7 +29,7 @@ export class LoginComponent {
       this.authService.login({email, password}).subscribe(success => {
         if (success) {
           localStorage.setItem("loged", "true")
-          this.router.navigate(['/upload-csv'])
+          this.router.navigate(['/home'])
         } else {
           console.log('Login failed');
           // Error handle

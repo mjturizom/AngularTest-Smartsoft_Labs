@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Eliminar Amiibo</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>¿Estas seguro de que quieres eliminar el amiibo <strong>{{ data.name }} </strong>?</h3>
+  <p>Esta operación es permanente y no se puede revertir, tendrás que agregar el amiibo nuevamente</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Borrar</button>
+</mat-dialog-actions>
