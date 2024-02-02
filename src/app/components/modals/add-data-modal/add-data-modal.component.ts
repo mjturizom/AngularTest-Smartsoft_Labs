@@ -11,6 +11,7 @@ import { Amiibo } from 'src/app/interfaces/dataList.interface';
   styleUrls: ['./add-data-modal.component.css']
 })
 export class AddDataModalComponent {
+  formkeys: any[]; 
 
   form = new FormGroup({
     amiiboSeries: new FormControl('', [Validators.required]),
@@ -25,14 +26,18 @@ export class AddDataModalComponent {
   constructor(
     public dialogRef: MatDialogRef<AddDataModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Partial<Amiibo>,
-  ) {}
+  ) {
+    this.formkeys = Object.keys(this.form.value)
+    
+  }
 
   
 
   onSubmit(): void {
+    if(this.form.valid){
+      this.dialogRef.close(this.form.value);
+    }
     
-    console.log(this.form.value)
-    this.dialogRef.close(this.form.value);
   }
 
   

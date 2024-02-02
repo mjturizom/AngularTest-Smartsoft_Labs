@@ -18,7 +18,15 @@
            <button *ngIf="isMobile" (click)="toggleSidebar()" class="absolute top-0 right-0 mt-4 mr-4">
             <mat-icon>close</mat-icon>
           </button>
-        Sidebar<br>Fixed width<br>Scrollable height
+          <nav class="w-ful">
+            <mat-list>
+              <mat-list-item><a routerLink="upload-csv">Cargar CSV</a></mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item><a routerLink="data-list">Crud</a></mat-list-item>
+            </mat-list>
+
+            
+          </nav>
       </aside>
       
       <!-- Content Area -->

@@ -113,12 +113,11 @@ export class DataListComponent implements AfterViewInit {
   }
 
   onAdd(): void {
-    const dialogRef = this.dialog.open(AddDataModalComponent, {
-      data: {},
-    });
+    const dialogRef = this.dialog.open(AddDataModalComponent);
 
-    dialogRef.afterClosed().subscribe((result: any) => {
-      console.log("The dialog was closed", result);
+    dialogRef.afterClosed().subscribe((result: Amiibo) => {
+      if(result)
+        this.dataSource = new MatTableDataSource([ result, ...this.dataSource.data]);
     });
   }
 }
